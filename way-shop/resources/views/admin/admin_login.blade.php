@@ -26,6 +26,14 @@
         <!-- Content Wrapper -->
         <div class="login-wrapper">
             <div class="container-center">
+                
+                @if(Session::has('flag_message_error'))
+                    <div class="alert alert-sm alert-danger alert-block">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" >X</button>
+                        <strong>{{ session('flag_message_error') }}</strong>
+                    </div>
+                @endif
+
             <div class="login-area">
                 <div class="panel panel-bd panel-custom">
                     <div class="panel-heading">
@@ -39,8 +47,12 @@
                             </div>
                         </div>
                     </div>
+
+                
                     <div class="panel-body">
-                        <form action="http://thememinister.com/crm/index.html" id="loginForm" novalidate>
+
+                        <form action="{{url('admin')}}" id="loginForm" novalidate method="post">
+                            {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="control-label" for="username">Username</label>
                                 <input type="text" placeholder="example@gmail.com" title="Please enter you username" required="" value="" name="username" id="username" class="form-control">
