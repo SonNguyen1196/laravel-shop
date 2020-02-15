@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('request', 'testcontroller@index')
+
+Route::match(['get', 'post'], '/', 'IndexController@index' );
+Route::match(['get', 'post'], '/admin', 'AdminController@login');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
