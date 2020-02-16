@@ -17,9 +17,17 @@
 
 // Route::get('request', 'testcontroller@index')
 
+// Route::group(['prefix' => 'admin'], function () {
+//     Route::get('users', function () {
+//        // route nay se co duong dan là admin/users
+//     });
+// });
+
 Route::match(['get', 'post'], '/', 'IndexController@index' );
 Route::match(['get', 'post'], '/admin', 'AdminController@login');
 Auth::routes();
-
+Route::group(['middleware' => 'auth'], function () {
+    Route::match(['get', 'post'], '/admin/dashboard', 'AdminController@dashboard');
+});
+Route::get('/sign-out', 'AdminController@logout')->name('sign-out');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::match(['get', 'post'], '/admin/dashboard', 'AdminController@dashboard');
