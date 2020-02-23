@@ -14,10 +14,10 @@ class CreateProductProductTye extends Migration
     public function up()
     {
         Schema::create('product_product_types', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('product_id');
-            $table->integer('product_type_id');
-            $table->timestamps();
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->integer('product_type_id')->unsigned();
+            $table->foreign('product_type_id')->references('id')->on('product_types')->onDelete('cascade');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentPosts extends Migration
+class CreatePivotPostCategories extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateCommentPosts extends Migration
      */
     public function up()
     {
-        Schema::create('comment_posts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->longText('content');
+        Schema::create('pivot_post_categories', function (Blueprint $table) {
             $table->integer('post_id')->unsigned();
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->timestamps();
+            $table->integer('post_categories_id')->unsigned();
+            $table->foreign('post_categories_id')->references('id')->on('post_categories')->onDelete('cascade');
         });
     }
 
@@ -31,6 +28,6 @@ class CreateCommentPosts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comment_posts');
+        Schema::dropIfExists('pivot_post_categories');
     }
 }
