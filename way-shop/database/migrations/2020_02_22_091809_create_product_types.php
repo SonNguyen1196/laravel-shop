@@ -19,7 +19,6 @@ class CreateProductTypes extends Migration
             $table->string('slug')->unique();
             $table->text('description');
             $table->string('image');
-            $table->string('image_gallary');
             $table->timestamps();
         });
     }

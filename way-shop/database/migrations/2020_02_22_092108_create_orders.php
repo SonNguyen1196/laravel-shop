@@ -19,7 +19,10 @@ class CreateOrders extends Migration
             $table->integer('user_id');
             $table->string('amount');
             $table->string('date_order');
-            $table->integer('payment');
+            $table->string('payment');
+            $table->string('phone');
+            $table->string('address');
+            $table->string('email');
             $table->timestamps();
         });
     }

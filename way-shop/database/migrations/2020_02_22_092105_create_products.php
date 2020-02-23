@@ -23,8 +23,7 @@ class CreateProducts extends Migration
             $table->longText('description');
             $table->string('feature_image');
             $table->string('image_gallary');
-            $table->integer('comment_id');
-            $table->integer('user_id');
+            $table->integer('product_type_id');
             $table->timestamps();
         });
     }
