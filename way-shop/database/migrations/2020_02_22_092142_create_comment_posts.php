@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductProductTye extends Migration
+class CreateCommentPosts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateProductProductTye extends Migration
      */
     public function up()
     {
-        Schema::create('product_product_types', function (Blueprint $table) {
+        Schema::create('comment_posts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->longText('content');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateProductProductTye extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_product_types');
+        Schema::dropIfExists('comment_posts');
     }
 }

@@ -15,6 +15,11 @@ class CreateProductTypes extends Migration
     {
         Schema::create('product_types', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->text('description');
+            $table->string('image');
+            $table->string('image_gallary');
             $table->timestamps();
         });
     }
