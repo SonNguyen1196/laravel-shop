@@ -15,16 +15,12 @@ class CreateOrders extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('amount');
+            $table->integer('customer_id')->unsigned();
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->string('date_order');
+            $table->integer('status')->default('0');
             $table->string('payment');
-            $table->string('phone');
-            $table->string('address');
-            $table->string('email');
+            $table->decimal('price_toatal', 10, 0);
             $table->timestamps();
         });
     }
