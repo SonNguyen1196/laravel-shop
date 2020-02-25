@@ -22,7 +22,7 @@ class CreateProducts extends Migration
             $table->text('short_desc');
             $table->longText('description');
             $table->string('feature_image');
-            $table->string('image_gallary');
+            $table->longText('image_gallary');
             $table->timestamps();
         });
     }
