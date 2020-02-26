@@ -15,6 +15,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'admin',
                 'email' => 'ngocsonytb2016@gmail.com',
+                'phone' => '0961090061',
                 'password' => Hash::make('@Son0961090061'),
                 'address' =>'43 An Nhon, P17, Go Vap',
                 'city' =>'Ho Chi Minh',
@@ -24,6 +25,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Son Nguyen',
                 'email' => Str::random(10).'@gmail.com',
+                'phone' => '0961090062',
                 'password' => Hash::make('password'),
                 'address' =>'78 Thang Long, Tan Binh',
                 'city' =>'Ho Chi Minh',
@@ -33,6 +35,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Thu Hien',
                 'email' => Str::random(10).'@gmail.com',
+                'phone' => '0961090063',
                 'password' => Hash::make('password'),
                 'address' =>'1D Nguyen Duy, Binh Thanh',
                 'city' =>'Ho Chi Minh',

@@ -50,7 +50,7 @@
                         <div class="form-group">
                             <div>
                                 <button class="btn btn-add">Login</button>
-                                <a class="btn btn-warning" href="register.html">Register</a>
+                                <a class="btn btn-warning" href="{{route('register')}}">Register</a>
                             </div>
 
                             @if (Route::has('password.request'))

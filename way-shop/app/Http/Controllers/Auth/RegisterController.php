@@ -49,11 +49,19 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $messages = [
+            'required' => 'The :attribute field is required.',
+            'phone.regex' => 'Please type exactly phone number',
+            'unique' => 'The :attribute field is already.',
+        ];
+
+
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9|max:10|unique:users',
+        ], $messages);
     }
 
     /**
@@ -67,6 +75,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
     }

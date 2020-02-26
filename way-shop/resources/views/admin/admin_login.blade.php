@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <!-- Mirrored from thememinister.com/crm/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Jun 2019 11:09:03 GMT -->
 <head>
         <meta charset="utf-8">
@@ -26,7 +26,7 @@
         <!-- Content Wrapper -->
         <div class="login-wrapper">
             <div class="container-center">
-                
+
                 @if(Session::has('flag_message_error'))
                     <div class="alert alert-sm alert-danger alert-block">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close" >X</button>
@@ -48,7 +48,7 @@
                         </div>
                     </div>
 
-                
+
                     <div class="panel-body">
 
                         <form action="{{url('admin')}}" id="loginForm" novalidate method="post">
