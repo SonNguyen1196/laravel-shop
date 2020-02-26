@@ -24,10 +24,9 @@
 // });
 
 Route::match(['get', 'post'], '/', 'IndexController@index' );
-Route::match(['get', 'post'], '/admin', 'AdminController@login');
+//Route::match(['get', 'post'], '/admin', 'AdminController@login');
 Auth::routes();
-Route::group(['middleware' => 'auth'], function () {
-    Route::match(['get', 'post'], '/admin/dashboard', 'AdminController@dashboard');
+Route::group(['prefix'     => 'admin', 'middleware' => ['auth']], function () {
+    Route::get('/login', 'HomeController@index')->name('home');
+//    Route::match(['get', 'post'], '/admin/dashboard', 'AdminController@dashboard')->name('dashboard');
 });
-Route::get('/sign-out', 'AdminController@logout')->name('sign-out');
-Route::get('/home', 'HomeController@index')->name('home');
