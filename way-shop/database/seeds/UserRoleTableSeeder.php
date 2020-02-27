@@ -13,19 +13,23 @@ class UserRoleTableSeeder extends Seeder
     {
         $roles_data = [
             [
-                'name' => 'admin',
-                'display_name' => 'Admin',
+                'role_id' => 1,
+                'user_id' => 1,
             ],
             [
-                'name' => 'writer',
-                'display_name' => 'Writer',
+                'role_id' => 2,
+                'user_id' => 4,
             ],
             [
-                'name' => 'subscriber',
-                'display_name' => 'Subscriber',
+                'role_id' => 3,
+                'user_id' => 4,
+            ],
+            [
+                'role_id' => 3,
+                'user_id' => 2,
             ]
 
         ];
-        DB::table('roles')->insert($roles_data);
+        DB::table('role_user')->insert($roles_data);
     }
 }

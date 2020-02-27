@@ -11,6 +11,25 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $permissions = [
+            [
+                'name' => 'user-list',
+                'display_name' => 'List users',
+            ],
+            [
+                'name' => 'user-add',
+                'display_name' => 'Add User',
+            ],
+            [
+                'name' => 'user-edit',
+                'display_name' => 'Edit User',
+            ],
+            [
+                'name' => 'user-delete',
+                'display_name' => 'Delete User',
+            ]
+
+        ];
+        DB::table('permissions')->insert($permissions);
     }
 }

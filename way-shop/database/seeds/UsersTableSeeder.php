@@ -41,6 +41,16 @@ class UsersTableSeeder extends Seeder
                 'city' =>'Ho Chi Minh',
                 'status' =>'0',
                 'image' =>'https://cdn1.iconfinder.com/data/icons/avatar-97/32/avatar-02-512.png',
+            ],
+            [
+                'name' => 'Hoang Lam',
+                'email' => 'writer@gmail.com',
+                'phone' => '0961090064',
+                'password' => Hash::make('@Son0961090061'),
+                'address' =>'1D Phan Huy Ich, Q.Tân Bình',
+                'city' =>'Ho Chi Minh',
+                'status' =>'1',
+                'image' =>'https://cdn1.iconfinder.com/data/icons/avatar-97/32/avatar-02-512.png',
             ]
         ];
         DB::table('users')->insert($user_data);
