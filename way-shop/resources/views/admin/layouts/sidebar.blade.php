@@ -11,7 +11,7 @@
             </span>
             </a>
         </li>
-        {{--User Module --}}
+        {{--User Module Role Permission Module --}}
         <li class="treeview">
             <a href="#">
             <i class="fa fa-user-circle"></i><span>User Manager</span>
@@ -20,9 +20,9 @@
             </span>
             </a>
             <ul class="treeview-menu">
-            <li><a href="add-customer.html">List Users</a></li>
-            <li><a href="clist.html">Add New User</a></li>
-            <li><a href="group.html">Groups</a></li>
+            <li><a href="add-customer.html">Users</a></li>
+            <li><a href="clist.html">Roles</a></li>
+            <li><a href="group.html">Permission</a></li>
             </ul>
         </li>
         {{--Role Permission Module --}}
@@ -34,7 +34,9 @@
             </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="add-customer.html">List Roles</a></li>
+                <li><a href="add-customer.html">Roles</a></li>
+                <li><a href="clist.html">Add New Role</a></li>
+                <li><a href="add-customer.html">Roles</a></li>
                 <li><a href="clist.html">Add New Role</a></li>
             </ul>
         </li>
