@@ -180,6 +180,12 @@
 
          }
          dash();
+
+         $(document).ready(function () {
+             setTimeout(function(){
+                 $('.alert-notification').slideUp();
+             }, 4000);
+         })
       </script>
 
    </body>

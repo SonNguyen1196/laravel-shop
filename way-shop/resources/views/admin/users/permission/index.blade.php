@@ -14,7 +14,15 @@
         <!-- Main content -->
         <section class="content">
             <div class="row">
-
+                @if ($message = Session::get('flag_message_success'))
+                    <div class="alert alert-success alert-notification ">
+                        <button type="button" class="close" data-dismiss="alert">X</button>
+                        <strong>{{ $message }}</strong>
+                    </div>
+                @endif
+                <div style="margin-bottom: 20px">
+                    <a class="btn btn-add" href="{{route('permission.create')}}">ADD PERMISSION</a>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover">
                         <thead>

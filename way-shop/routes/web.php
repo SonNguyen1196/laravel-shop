@@ -37,5 +37,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::group(['prefix'=> 'permission', 'as' => 'permission.'], function (){
         Route::get('index', 'PermissionController@index')->name('index');
         Route::get('create', 'PermissionController@create')->name('create');
+        Route::post('store', 'PermissionController@store')->name('store');
     });
 });
