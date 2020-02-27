@@ -26,12 +26,16 @@
 Route::match(['get', 'post'], '/', 'IndexController@index' );
 //Route::match(['get', 'post'], '/admin', 'AdminController@login');
 Auth::routes();
-Route::group(['prefix'     => 'admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 //    Login
     Route::get('/login', 'HomeController@index')->name('home');
-//    Dashboard
+    //Dashboard
     Route::get('/dashboard', function (){
         return view('admin.dashboard');
     })->name('dashboard');
-//    Route::match(['get', 'post'], '/admin/dashboard', 'AdminController@dashboard')->name('dashboard');
+    //Permission
+    Route::group(['prefix'=> 'permission', 'as' => 'permission.'], function (){
+        Route::get('index', 'PermissionController@index')->name('index');
+        Route::get('create', 'PermissionController@create')->name('create');
+    });
 });
