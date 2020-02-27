@@ -6,24 +6,39 @@
     <!-- sidebar menu -->
     <ul class="sidebar-menu">
         <li class="active">
-            <a href="index.html"><i class="fa fa-tachometer"></i><span>Dashboard</span>
+            <a href="{{route('dashboard')}}"><i class="fa fa-tachometer"></i><span>Dashboard</span>
             <span class="pull-right-container">
             </span>
             </a>
         </li>
+        {{--User Module --}}
         <li class="treeview">
             <a href="#">
-            <i class="fa fa-users"></i><span>Customers</span>
+            <i class="fa fa-user-circle"></i><span>User Manager</span>
             <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
             </span>
             </a>
             <ul class="treeview-menu">
-            <li><a href="add-customer.html">Add Customer</a></li>
-            <li><a href="clist.html">List</a></li>
+            <li><a href="add-customer.html">List Users</a></li>
+            <li><a href="clist.html">Add New User</a></li>
             <li><a href="group.html">Groups</a></li>
             </ul>
         </li>
+        {{--Role Permission Module --}}
+        <li class="treeview">
+            <a href="#">
+                <i class="hvr-buzz-out fa fa-cogs"></i><span>Role Manager</span>
+                <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+            </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="add-customer.html">List Roles</a></li>
+                <li><a href="clist.html">Add New Role</a></li>
+            </ul>
+        </li>
+
         <li class="treeview">
             <a href="#">
             <i class="fa fa-shopping-basket"></i><span>Transaction</span>
