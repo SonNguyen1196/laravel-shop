@@ -49,6 +49,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::get('/', 'RoleController@index')->name('index');
         Route::get('/create', 'RoleController@create')->name('create');
         Route::post('/', 'RoleController@store')->name('store');
+        Route::get('/{id}', 'RoleController@show')->name('show');
         Route::get('/{id}/edit', 'RoleController@edit')->name('edit');
         Route::put('/{id}', 'RoleController@update')->name('update');
         Route::post('/{id}', 'RoleController@destroy')->name('destroy');

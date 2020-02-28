@@ -20,7 +20,7 @@
                     </div>
                 @endif
                 <div style="margin-bottom: 20px">
-                    <a class="btn btn-add" href="{{route('permission.create')}}">ADD ROLE</a>
+                    <a class="btn btn-add" href="{{route('role.create')}}">ADD ROLE</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover">
@@ -40,17 +40,17 @@
                                 <td>{{ $role->name }}</td>
                                 <td>{{ $role->display_name }}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{route('permission.edit', ['id' => $role->id ])}}"><i class="fa fa-eye"></i> View</a>
-                                    <a class="btn btn-add" href="{{route('permission.edit', ['id' => $role->id ])}}"><i class="fa fa-pencil"></i> Edit</a>
-                                    <a class="btn btn-danger" href="{{ route('logout') }}"
+                                    <a class="btn btn-primary" href="{{route('role.show', ['id' => $role->id ])}}"><i class="fa fa-eye"></i> View</a>
+                                    <a class="btn btn-add" href="{{route('role.edit', ['id' => $role->id ])}}"><i class="fa fa-pencil"></i> Edit</a>
+                                    <a class="btn btn-danger" href="#"
                                        onclick=" confirm('Are you sure you want to Delete {{$role->display_name}}'); event.preventDefault();
                                                      document.getElementById('delete-permission-{{$role->id}}').submit();">
                                         <i class="fa fa-trash-o"></i>{{ __('Delete') }}
                                     </a>
 
-{{--                                    <form id="delete-permission-{{$permission->id}}" action="{{ route('permission.destroy', ['id' => $permission->id]) }}" method="POST" style="display: none;">--}}
-{{--                                        @csrf--}}
-{{--                                    </form>--}}
+                                    <form id="delete-permission-{{$role->id}}" action="{{ route('permission.destroy', ['id' => $role->id]) }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

@@ -41,7 +41,7 @@
                                 <td>{{ $permission->display_name }}</td>
                                 <td>
                                     <a class="btn btn-add " href="{{route('permission.edit', ['id' => $permission->id ])}}"><i class="fa fa-pencil"></i> Edit</a>
-                                    <a class="btn btn-danger " href="{{ route('logout') }}"
+                                    <a class="btn btn-danger " href="#"
                                        onclick=" confirm('Are you sure you want to Delete {{$permission->display_name}}'); event.preventDefault();
                                                      document.getElementById('delete-permission-{{$permission->id}}').submit();">
                                         <i class="fa fa-trash-o"></i>{{ __('Delete') }}
