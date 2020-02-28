@@ -22,7 +22,7 @@
             <ul class="treeview-menu">
             <li><a href="add-customer.html">Users</a></li>
             <li><a href="{{route('role.index')}}">Roles</a></li>
-            <li><a href="{{route('permission.index')}}">Permission</a></li>
+            <li><a href="{{route('permission.index')}}">Permissions</a></li>
             </ul>
         </li>
         {{--Role Permission Module --}}
