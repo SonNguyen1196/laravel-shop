@@ -20,18 +20,18 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-group">
-                                <label for="name-permission">Name Permission</label>
-                                <input type="text" id = "name-permission" name="name-permission" class="form-control" placeholder="Enter Name" required>
+                                <label for="name">Name Permission</label>
+                                <input type="text" id = "name" name="name" class="form-control" placeholder="Enter Name" required>
                                 @if(count($errors) > 0)
-                                    <small class="text-danger">{{$errors->first('name-permission')}}</small>
+                                    <small class="text-danger">{{$errors->first('name')}}</small>
                                 @endif
 
                             </div>
                             <div class="form-group">
-                                <label for="display-name-permission">Display Name Permission</label>
-                                <input type="text" id = "display-name-permission" name="display-name-permission" class="form-control" placeholder="Enter Display Name" required>
+                                <label for="display_name">Display Name Permission</label>
+                                <input type="text" id = "display_name" name="display_name" class="form-control" placeholder="Enter Display Name" required>
                                 @if(count($errors) > 0)
-                                    <small class="text-danger">{{$errors->first('display-name-permission')}}</small>
+                                    <small class="text-danger">{{$errors->first('display_name')}}</small>
                                 @endif
                             </div>
                             <div >

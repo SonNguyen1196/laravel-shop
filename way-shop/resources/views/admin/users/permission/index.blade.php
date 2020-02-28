@@ -40,8 +40,16 @@
                                 <td>{{ $permission->name }}</td>
                                 <td>{{ $permission->display_name }}</td>
                                 <td>
-                                    <a class="btn btn-add btn-sm" href="{{route('permission.create')}}"><i class="fa fa-pencil"></i> Edit</a>
-                                    <a class="btn btn-danger btn-sm" href=""><i class="fa fa-pencil"></i> Delete</a>
+                                    <a class="btn btn-add btn-sm" href="{{route('permission.edit', ['id' => $permission->id ])}}"><i class="fa fa-pencil"></i> Edit</a>
+                                    <a class="btn btn-danger btn-sm" href="{{ route('logout') }}"
+                                       onclick=" confirm('Are you sure you want to Delete {{$permission->display_name}}'); event.preventDefault();
+                                                     document.getElementById('delete-permission-{{$permission->id}}').submit();">
+                                        <i class="fa fa-pencil"></i>{{ __('Delete') }}
+                                    </a>
+
+                                    <form id="delete-permission-{{$permission->id}}" action="{{ route('permission.destroy', ['id' => $permission->id]) }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

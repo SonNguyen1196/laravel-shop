@@ -34,9 +34,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         return view('admin.dashboard');
     })->name('dashboard');
     //Permission
-    Route::group(['prefix'=> 'permission', 'as' => 'permission.'], function (){
-        Route::get('index', 'PermissionController@index')->name('index');
-        Route::get('create', 'PermissionController@create')->name('create');
-        Route::post('store', 'PermissionController@store')->name('store');
+    Route::group(['prefix'=> 'permissions', 'as' => 'permission.'], function (){
+        Route::get('/', 'PermissionController@index')->name('index');
+        Route::get('/create', 'PermissionController@create')->name('create');
+        Route::post('/', 'PermissionController@store')->name('store');
+        Route::get('/{id}/edit', 'PermissionController@edit')->name('edit');
+        Route::put('/{id}', 'PermissionController@update')->name('update');
+        Route::post('/{id}', 'PermissionController@destroy')->name('destroy');
     });
 });
