@@ -42,4 +42,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::put('/{id}', 'PermissionController@update')->name('update');
         Route::post('/{id}', 'PermissionController@destroy')->name('destroy');
     });
+
+    //Roles
+
+    Route::group(['prefix'=> 'roles', 'as' => 'role.'], function (){
+        Route::get('/', 'RoleController@index')->name('index');
+        Route::get('/create', 'RoleController@create')->name('create');
+        Route::post('/', 'RoleController@store')->name('store');
+        Route::get('/{id}/edit', 'RoleController@edit')->name('edit');
+        Route::put('/{id}', 'RoleController@update')->name('update');
+        Route::post('/{id}', 'RoleController@destroy')->name('destroy');
+    });
 });
