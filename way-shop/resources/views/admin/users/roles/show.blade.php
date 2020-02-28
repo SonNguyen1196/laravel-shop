@@ -17,26 +17,17 @@
                 <div style="margin-bottom: 20px">
                     <a class="btn btn-add" href="{{route('role.index')}}">BACK TO ROLE MANAGER</a>
                 </div>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                        <tr class="info">
-                            <th scope="col">STT</th>
-                            <th scope="col">Role</th>
-                            <th scope="col">Permission</th>
-                        </tr>
-                        </thead>
-                        {{$roles}}
-                        <tbody>
-                        @foreach($roles as $key => $role)
-                            <tr>
-                                <th scope="row">{{++$key}}</th>
-                                <td>{{ $role->name }}</td>
-                                <td>{{ $role->display_name }}</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                <div class="name-role">
+                    <h3 style="font-weight: bold">View detail role {{$roleObjs->display_name}}</h3>
+                </div>
+                <div class="list-permission">
+                    @if($getAllPermissionOfRoles)
+                        <ul style="list-style: none">
+                            @foreach($getAllPermissionOfRoles as $permission)
+                                <li><h4>{{ $permission->display_name }}</h4></li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </div>
 
             </div>

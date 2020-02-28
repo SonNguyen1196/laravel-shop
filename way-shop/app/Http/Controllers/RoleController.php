@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Validated;
 use App\Role;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
@@ -53,7 +54,10 @@ class RoleController extends Controller
     }
 
     public function show($id){
-        return $id;
+        $roleObjs = Role::find($id);
+        $getAllPermissionOfRoles = $roleObjs->permissions;
+//        $getAllPermissionOfRole = DB::table('role_permission')->where('role_id', $id)->get();
+        return view('admin.users.roles.show', compact('roleObjs', 'getAllPermissionOfRoles'));
     }
 
     public function edit(){
