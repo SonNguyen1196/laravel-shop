@@ -60,12 +60,14 @@ class RoleController extends Controller
         return view('admin.users.roles.show', compact('roleObjs', 'getAllPermissionOfRoles'));
     }
 
-    public function edit(){
-
+    public function edit($id){
+        $roleObjs = Role::find($id);
+        $permissions = Permission::all();
+        return view('admin.users.roles.edit', compact('roleObjs', 'getAllPermissionOfRoles', 'permissions'));
     }
 
-    public function update(){
-
+    public function update($id){
+        return $id;
     }
 
     public function destroy(){
