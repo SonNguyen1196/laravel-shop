@@ -15,6 +15,8 @@
       <link href="{{asset('admin_assets/assets/plugins/jquery-ui-1.12.1/jquery-ui.min.css')}}" rel="stylesheet" type="text/css"/>
       <!-- Bootstrap -->
       <link href="{{asset('admin_assets/assets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
+      <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
       <!-- Bootstrap rtl -->
       <!--<link href="assets/bootstrap-rtl/bootstrap-rtl.min.css" rel="stylesheet" type="text/css"/>-->
       <!-- Lobipanel css -->
@@ -64,8 +66,11 @@
       <script src="{{asset('admin_assets/assets/plugins/jQuery/jquery-1.12.4.min.js')}}" type="text/javascript"></script>
       <!-- jquery-ui -->
       <script src="{{asset('admin_assets/assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js')}}" type="text/javascript"></script>
+        {{--        Data Table --}}
+      <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
       <!-- Bootstrap -->
       <script src="{{asset('admin_assets/assets/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
+      <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
       <!-- lobipanel -->
       <script src="{{asset('admin_assets/assets/plugins/lobipanel/lobipanel.min.js')}}" type="text/javascript"></script>
       <!-- Pace js -->

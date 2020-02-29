@@ -20,7 +20,7 @@
             </span>
             </a>
             <ul class="treeview-menu">
-            <li><a href="add-customer.html">Users</a></li>
+            <li><a href="{{route('user.index')}}">Users</a></li>
             <li><a href="{{route('role.index')}}">Roles</a></li>
             <li><a href="{{route('permission.index')}}">Permissions</a></li>
             </ul>
