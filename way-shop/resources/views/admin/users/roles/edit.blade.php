@@ -10,7 +10,6 @@
                 <h1>Edit Role</h1>
             </div>
         </section>
-{{--        {{$getAllPermissionOfRoles}}--}}
         <!-- Main content -->
 
         @if(isset($roleObjs))
@@ -45,7 +44,7 @@
                                 @if($permissions)
                                     @foreach($permissions as $permission)
                                         <div class="form-group">
-                                            <label><input name="role_permission[]" type="checkbox" value="{{$permission->id}}"> {{$permission->display_name}}</label>
+                                            <label><input name="role_permission[]" @if($getAllPermissionOfRoles->contains($permission->id)) checked @endif type="checkbox" value="{{$permission->id}}"> {{$permission->display_name}}</label>
                                         </div>
                                     @endforeach
                                 @endif
