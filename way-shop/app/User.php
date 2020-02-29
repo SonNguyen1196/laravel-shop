@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+Use App\Role;
 
 class User extends Authenticatable
 {
@@ -18,6 +19,10 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password', 'phone', 'image'
     ];
+
+    public function roles(){
+        return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
+    }
 
     /**
      * The attributes that should be hidden for arrays.
