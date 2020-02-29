@@ -44,11 +44,11 @@
                                     <a class="btn btn-add" href="{{route('role.edit', ['id' => $role->id ])}}"><i class="fa fa-pencil"></i> Edit</a>
                                     <a class="btn btn-danger" href="#"
                                        onclick=" confirm('Are you sure you want to Delete {{$role->display_name}}'); event.preventDefault();
-                                                     document.getElementById('delete-permission-{{$role->id}}').submit();">
+                                                     document.getElementById('delete-role-{{$role->id}}').submit();">
                                         <i class="fa fa-trash-o"></i>{{ __('Delete') }}
                                     </a>
 
-                                    <form id="delete-permission-{{$role->id}}" action="{{ route('permission.destroy', ['id' => $role->id]) }}" method="POST" style="display: none;">
+                                    <form id="delete-role-{{$role->id}}" action="{{ route('role.destroy', ['id' => $role->id]) }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </td>
