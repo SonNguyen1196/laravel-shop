@@ -190,6 +190,25 @@
              setTimeout(function(){
                  $('.alert-notification').slideUp();
              }, 4000);
+
+             $(function() {
+                 $('#list-datatable').DataTable({
+                     processing: true,
+                     serverSide: true,
+                     ajax: '{{route('user.list-users')}}',
+                     columns: [
+                         {data: 'id', name: 'id'},
+                         {data: 'image', name: 'image'},
+                         {data: 'name', name: 'name'},
+                         {data: 'email', name: 'email'},
+                         {data: 'phone', name: 'phone'},
+                         {data: 'address', name: 'address'},
+                         {data: 'city', name: 'city'},
+                         {data: 'status', name: 'status'},
+                     ]
+                 });
+             });
+
          })
       </script>
 

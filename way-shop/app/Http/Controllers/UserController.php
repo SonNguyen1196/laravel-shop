@@ -17,8 +17,13 @@ class UserController extends Controller
     }
 
     public function index(){
-        $userData = DB::table('users')->paginate(10);
+        $userData = DB::table('users')->get();
         return view('admin.users.users.index', compact('userData'));
+    }
+
+    public function getUsers(){
+        $users = DB::table('users')->select(['id', 'image','name', 'email', 'phone', 'address', 'city', 'status']);
+        return Datatables::of($users)->make();
     }
 
     public function create(){

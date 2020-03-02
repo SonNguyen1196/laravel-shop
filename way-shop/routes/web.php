@@ -57,6 +57,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::group(['prefix'=> 'users', 'as' => 'user.'], function (){
         Route::get('/', 'UserController@index')->name('index');
+        Route::get('/list-users', 'UserController@getUsers')->name('list-users');
         Route::get('/create', 'UserController@create')->name('create');
         Route::post('/', 'UserController@store')->name('store');
         Route::get('/{id}', 'UserController@show')->name('show');
