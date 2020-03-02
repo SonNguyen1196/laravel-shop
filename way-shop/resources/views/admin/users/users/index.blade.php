@@ -27,59 +27,29 @@
                         <thead>
                         <tr class="info">
                             <th scope="col">ID</th>
-                            <th scope="col">Image</th>
+                            <th scope="col" style="width: 7%">Image</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Email</th>
+                            <th scope="col" style="width: 18%">Email</th>
                             <th scope="col">Phone</th>
                             <th scope="col" style="width: 18%;">Address</th>
-                            <th scope="col">City</th>
                             <th scope="col">Status</th>
-{{--                            <th scope="col">Action</th>--}}
+                            <th scope="col"  style="width: 16%;">Action</th>
                         </tr>
                         </thead>
 
                         <tbody>
-{{--                        @if($userData)--}}
-{{--                            @foreach($userData as $key => $user)--}}
-{{--                                <tr>--}}
-{{--                                    <th scope="row">{{++$key}}</th>--}}
-{{--                                    <td><img src="{{ $user->image }}" width="80" height="80"></td>--}}
-{{--                                    <td>{{ $user->name }}</td>--}}
-{{--                                    <td>{{ $user->email }}</td>--}}
-{{--                                    <td>{{ $user->phone }}</td>--}}
-{{--                                    <td>{{ $user->address }}</td>--}}
-{{--                                    <td>{{ $user->city }}</td>--}}
-{{--                                    <td>--}}
-{{--                                        <input data-on="Active" data-off="Deactive"  type="checkbox" {{ ($user->status == 1) ? 'checked' : '' }} data-toggle="toggle">--}}
-{{--                                    </td>--}}
-{{--                                    <td>--}}
-{{--                                        <a class="btn btn-primary" href="{{route('user.show', ['id' => $user->id ])}}"><i class="fa fa-eye"></i> View</a>--}}
-{{--                                        <a class="btn btn-add" href="{{route('user.edit', ['id' => $user->id ])}}"><i class="fa fa-pencil"></i> Edit</a>--}}
-{{--                                        <a class="btn btn-danger" href="#"--}}
-{{--                                           onclick=" confirm('Are you sure you want to Delete {{$user->name}}'); event.preventDefault();--}}
-{{--                                               document.getElementById('delete-role-{{$user->id}}').submit();">--}}
-{{--                                            <i class="fa fa-trash-o"></i>{{ __('Delete') }}--}}
-{{--                                        </a>--}}
 
-{{--                                        <form id="delete-role-{{$user->id}}" action="{{ route('user.destroy', ['id' => $user->id]) }}" method="POST" style="display: none;">--}}
-{{--                                            @csrf--}}
-{{--                                        </form>--}}
-{{--                                    </td>--}}
-{{--                                </tr>--}}
-{{--                            @endforeach--}}
-{{--                        @endif--}}
                         </tbody>
                         <tfoot>
                         <tr class="info">
                             <th scope="col">ID</th>
-                            <th scope="col">Image</th>
+                            <th scope="col" style="width: 7%">Image</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Email</th>
+                            <th scope="col" style="width: 18%">Email</th>
                             <th scope="col">Phone</th>
                             <th scope="col" style="width: 18%;">Address</th>
-                            <th scope="col">City</th>
                             <th scope="col">Status</th>
-{{--                            <th scope="col">Action</th>--}}
+                            <th scope="col"  style="width: 16%;">Action</th>
                         </tr>
                         </tfoot>
 

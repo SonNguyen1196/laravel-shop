@@ -197,16 +197,35 @@
                      serverSide: true,
                      ajax: '{{route('user.list-users')}}',
                      columns: [
-                         {data: 'id', name: 'id'},
-                         {data: 'image', name: 'image'},
-                         {data: 'name', name: 'name'},
-                         {data: 'email', name: 'email'},
-                         {data: 'phone', name: 'phone'},
-                         {data: 'address', name: 'address'},
-                         {data: 'city', name: 'city'},
-                         {data: 'status', name: 'status'},
-                     ]
+                         {data: 'id'},
+                         {data: 'image'},
+                         {data: 'name'},
+                         {data: 'email'},
+                         {data: 'phone'},
+                         {data: 'address'},
+                         {data: 'status'},
+                         {data: 'action', name: 'action', orderable: false, searchable: false}
+                     ],
+                     columnDefs: [
+                         { targets: 1,
+                             render: function(data) {
+                                 return '<img width="80" height="80" src="'+data+'">'
+                             }
+                         },
+                         { targets: 6,
+                             render: function(data) {
+                                 var newData = (data == 1) ? "checked" : " ";
+                                 return '<input class="status-toggle" type="checkbox" '+ newData +' data-toggle="toggle">';
+
+                             }
+                         }
+                     ],
+                     "fnDrawCallback": function() {
+                         $('.status-toggle').bootstrapToggle();
+                     },
                  });
+
+
              });
 
          })
