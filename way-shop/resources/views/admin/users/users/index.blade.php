@@ -64,3 +64,50 @@
 
 @endsection
 
+@section('javascript')
+    <script>
+        $(document).ready(function () {
+            setTimeout(function(){
+                $('.alert-notification').slideUp();
+            }, 4000);
+
+            $(function() {
+                $('#list-datatable').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: '{{route('user.list-users')}}',
+                    columns: [
+                        {data: 'id'},
+                        {data: 'image'},
+                        {data: 'name'},
+                        {data: 'email'},
+                        {data: 'phone'},
+                        {data: 'address'},
+                        {data: 'status'},
+                        {data: 'action', name: 'action', orderable: false, searchable: false}
+                    ],
+                    columnDefs: [
+                        { targets: 1,
+                            render: function(data) {
+                                return '<img width="80" height="80" src="'+data+'">'
+                            }
+                        },
+                        { targets: 6,
+                            render: function(data) {
+                                var newData = (data == 1) ? "checked" : " ";
+                                return '<input class="status-toggle" type="checkbox" '+ newData +' data-toggle="toggle">';
+
+                            }
+                        }
+                    ],
+                    "fnDrawCallback": function() {
+                        $('.status-toggle').bootstrapToggle();
+                    },
+                });
+
+
+            });
+
+        })
+    </script>
+@endsection
