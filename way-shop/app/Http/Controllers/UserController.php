@@ -42,8 +42,8 @@ class UserController extends Controller
 
     }
 
-    public function show(){
-        return 'view';
+    public function show($id){
+        return view('admin/users.users.show');
     }
 
     public function edit(){
