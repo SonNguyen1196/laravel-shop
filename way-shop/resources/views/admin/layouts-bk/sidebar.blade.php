@@ -25,20 +25,14 @@
             <li><a href="{{route('permission.index')}}">Permissions</a></li>
             </ul>
         </li>
-        {{--Role Permission Module --}}
-        <li class="treeview">
-            <a href="#">
-                <i class="hvr-buzz-out fa fa-cogs"></i><span>Role Manager</span>
+        {{--Role Media Module --}}
+        <li class="treeview-menu">
+            <a href="{{route('media.index')}}">
+                <i class="hvr-buzz-out fa fa-cogs"></i><span>Media Manager</span>
                 <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
             </span>
             </a>
-            <ul class="treeview-menu">
-                <li><a href="add-customer.html">Roles</a></li>
-                <li><a href="clist.html">Add New Role</a></li>
-                <li><a href="add-customer.html">Roles</a></li>
-                <li><a href="clist.html">Add New Role</a></li>
-            </ul>
         </li>
 
         <li class="treeview">

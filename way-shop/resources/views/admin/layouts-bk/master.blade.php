@@ -47,6 +47,7 @@
       <!--<link href="assets/dist/css/stylecrm-rtl.css" rel="stylesheet" type="text/css"/>-->
       <!-- End Theme Layout Style
          =====================================================================-->
+    @yield('head-master')
    </head>
    <body class="hold-transition sidebar-mini">
         <div id="preloader">
