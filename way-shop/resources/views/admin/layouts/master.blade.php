@@ -9,16 +9,16 @@
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>Adminca bootstrap 4 &amp; angular 5 admin template, Шаблон админки | Invoice</title>
     <!-- GLOBAL MAINLY STYLES-->
-    <link href="{{asset('admin-assets')}}//vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="{{asset('admin-assets')}}//vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="{{asset('admin-assets')}}//vendors/line-awesome/css/line-awesome.min.css" rel="stylesheet" />
-    <link href="{{asset('admin-assets')}}//vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
-    <link href="{{asset('admin-assets')}}//vendors/animate.css/animate.min.css" rel="stylesheet" />
-    <link href="{{asset('admin-assets')}}//vendors/toastr/toastr.min.css" rel="stylesheet" />
-    <link href="{{asset('admin-assets')}}//vendors/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="{{asset('admin-assets')}}/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{asset('admin-assets')}}/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="{{asset('admin-assets')}}/vendors/line-awesome/css/line-awesome.min.css" rel="stylesheet" />
+    <link href="{{asset('admin-assets')}}/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
+    <link href="{{asset('admin-assets')}}/vendors/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="{{asset('admin-assets')}}/vendors/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="{{asset('admin-assets')}}/vendors/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" />
     <!-- PLUGINS STYLES-->
     <!-- THEME STYLES-->
-    <link href="{{asset('admin-assets')}}//css/main.min.css" rel="stylesheet" />
+    <link href="{{asset('admin-assets')}}/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
 </head>
 
@@ -452,15 +452,15 @@
 </div>
 <!-- END QUICK SIDEBAR-->
 <!-- CORE PLUGINS-->
-<script src="{{asset('admin-assets')}}//vendors/jquery/dist/jquery.min.js"></script>
-<script src="{{asset('admin-assets')}}//vendors/popper.js/dist/umd/popper.min.js"></script>
-<script src="{{asset('admin-assets')}}//vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="{{asset('admin-assets')}}//vendors/metisMenu/dist/metisMenu.min.js"></script>
-<script src="{{asset('admin-assets')}}//vendors/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<script src="{{asset('admin-assets')}}//vendors/jquery-idletimer/dist/idle-timer.min.js"></script>
-<script src="{{asset('admin-assets')}}//vendors/toastr/toastr.min.js"></script>
-<script src="{{asset('admin-assets')}}//vendors/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="{{asset('admin-assets')}}//vendors/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+<script src="{{asset('admin-assets')}}/vendors/jquery/dist/jquery.min.js"></script>
+<script src="{{asset('admin-assets')}}/vendors/popper.js/dist/umd/popper.min.js"></script>
+<script src="{{asset('admin-assets')}}/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{{asset('admin-assets')}}/vendors/metisMenu/dist/metisMenu.min.js"></script>
+<script src="{{asset('admin-assets')}}/vendors/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="{{asset('admin-assets')}}/vendors/jquery-idletimer/dist/idle-timer.min.js"></script>
+<script src="{{asset('admin-assets')}}/vendors/toastr/toastr.min.js"></script>
+<script src="{{asset('admin-assets')}}/vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="{{asset('admin-assets')}}/vendors/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <!-- PAGE LEVEL PLUGINS-->
 <!-- CORE SCRIPTS-->
 <script src="{{asset('admin-assets')}}//js/app.min.js"></script>

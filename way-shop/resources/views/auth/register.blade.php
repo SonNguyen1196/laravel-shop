@@ -2,48 +2,54 @@
 
 @section('content')
 
-<div class="container-center lg">
-    <div class="login-area">
-        <div class="panel panel-bd panel-custom">
-            <div class="panel-heading">
-                <div class="view-header">
-                    <div class="header-icon">
-                        <i class="pe-7s-unlock"></i>
-                    </div>
-                    <div class="header-title">
-                        <h3>Register</h3>
-                        <small><strong>Please enter your data to register.</strong></small>
-                    </div>
-                </div>
+    <div class="col-md-6 offset-3" style="margin-top: 50px;">
+        <div class="ibox ibox-fullheight">
+            <div class="ibox-head">
+                <div class="ibox-title">Register</div>
             </div>
-            <div class="panel-body">
-                <form method="POST" action="{{ route('register') }}">
-                    @csrf
-
-                    <div class="row">
-                        <div class="form-group col-lg-6">
-                            <label for="name" >{{ __('Username') }}</label>
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                            @error('name')
-                            <span class="invalid-feedback help-block small" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-
-                        <div class="form-group col-lg-6">
-                            <label for="email" >{{ __('Email') }}</label>
-                            <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                @csrf
+                <div class="ibox-body">
+                    <div class="form-group mb-4 row">
+                        <label class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" value="{{old('email')}}" required autocomplete="email" autofocus placeholder="Email address">
                             @error('email')
-                            <span class="invalid-feedback help-block small" role="alert">
+                            <span class="invalid-feedback help-block small has-error" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                             @enderror
                         </div>
+                    </div>
 
-                        <div class="form-group col-lg-6">
-                            <label for="password" >{{ __('Password') }}</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="password" autofocus>
+                    <div class="form-group mb-4 row">
+                        <label class="col-sm-2 col-form-label">Phone</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" placeholder="Phone Number" name="phone" value="{{old('phone')}}" required autocomplete="phone" autofocus placeholder="Your phone">
+                            @error('phone')
+                            <span class="invalid-feedback help-block small has-error" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4 row">
+                        <label class="col-sm-2 col-form-label @error('name') is-invalid @enderror">Username</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" name="name" placeholder="Username" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            @error('name')
+                            <span class="invalid-feedback help-block small has-error" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4 row">
+                        <label class="col-sm-2 col-form-label" for="password" >{{ __('Password') }}</label>
+                        <div class="col-sm-10">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="***********" value="{{ old('password') }}" required autocomplete="password" autofocus>
                             @error('password')
                             <span class="invalid-feedback help-block small" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -51,31 +57,26 @@
                             @enderror
                         </div>
 
-                        <div class="form-group col-lg-6">
-                            <label for="password-confirm" >{{ __('Confirm Password') }}</label>
+                    </div>
+
+                    <div class="form-group mb-4 row">
+                        <label class="col-sm-2 col-form-label" for="password-confirm" >{{ __('Confirm Password') }}</label>
+                        <div class="col-sm-10">
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" autofocus>
                         </div>
 
-                        <div class="form-group col-lg-6">
-                            <label for="phone">{{ __('Phone') }}</label>
-                            <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
-                            @error('phone')
-                            <span class="invalid-feedback help-block small" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-
                     </div>
 
-                    <div>
-                        <button  type="submit"  class="btn btn-warning">Register</button>
-                        <a class="btn btn-add" href="{{route('login')}}">Login</a>
-                    </div>
 
-                </form>
-            </div>
+                </div>
+                <div class="ibox-footer row">
+                    <div class="col-sm-10 ml-sm-auto">
+                        <button type="submit" class="btn btn-primary mr-2" type="button">Submit</button>
+                        <a class="btn btn-secondary"  href="{{route('login')}}">Login</a>
+                    </div>
+                </div>
+            </>
         </div>
     </div>
-</div>
+
 @endsection

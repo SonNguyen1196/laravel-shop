@@ -25,10 +25,17 @@
 
 Route::match(['get', 'post'], '/', 'IndexController@index' );
 //Route::match(['get', 'post'], '/admin', 'AdminController@login');
-Route::get('admin', function (){
-    return view('admin.dashboard');
-});
+
 Auth::routes();
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+    //    Login
+    Route::get('/login', 'HomeController@index')->name('home');
+    //Dashboard
+    Route::get('/dashboard', function (){
+        return view('admin.dashboard');
+    })->name('dashboard');
+});
 
 //Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 ////    Login

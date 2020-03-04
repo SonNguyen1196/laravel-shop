@@ -199,7 +199,11 @@
                         </div>
                         <div class="d-flex justify-content-between mt-2">
                             <a class="text-muted" href="javascript:;">Earnings history</a>
-                            <a class="d-flex align-items-center" href="javascript:;">Logout<i class="ti-shift-right ml-2 font-20"></i></a>
+                            <a onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="d-flex align-items-center" href="{{ route('logout') }}">Logout<i class="ti-shift-right ml-2 font-20"></i></a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </div>
                     </div>
                 </div>
