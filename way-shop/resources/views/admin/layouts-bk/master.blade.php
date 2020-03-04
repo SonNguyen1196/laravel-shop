@@ -55,10 +55,10 @@
         </div>
         <!-- Site wrapper -->
         <div class="wrapper">
-            @include('admin.layouts.header')
-            @include('admin.layouts.sidebar')
+            @include('admin.layouts-bk.header')
+            @include('admin.layouts-bk.sidebar')
             @yield('content')
-            @include('admin.layouts.footer')
+            @include('admin.layouts-bk.footer')
         </div>
 
          <!-- Start Core Plugins

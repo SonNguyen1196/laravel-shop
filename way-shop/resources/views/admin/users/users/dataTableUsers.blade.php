@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('admin.layouts-bk.master')
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -65,7 +65,7 @@
 @endsection
 
 
-@extends('admin.layouts.master')
+@extends('admin.layouts-bk.master')
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->

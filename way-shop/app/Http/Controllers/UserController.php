@@ -35,7 +35,7 @@ class UserController extends Controller
     }
 
     public function create(){
-        return 'crete';
+        return view('admin.users.users.create');
     }
 
     public function store(){
@@ -47,7 +47,7 @@ class UserController extends Controller
     }
 
     public function edit(){
-        return 'Edit';
+//        return view('admin.users.users.create');
     }
 
     public function update(){
