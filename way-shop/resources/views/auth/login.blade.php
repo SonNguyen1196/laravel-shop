@@ -40,7 +40,7 @@
                 <form class="ibox-body" id="login-form" action="{{route('login')}}" method="POST">
                     @csrf
                     <h4 class="font-strong text-center mb-5">LOG IN</h4>
-                    <div class="form-group mb-4 has-error">
+                    <div class="form-group mb-4 ">
                         <input class="form-control form-control-air @error('email') is-invalid @enderror" type="email" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         @error('email')
                         <span class="invalid-feedback help-block small" role="alert">
@@ -48,7 +48,7 @@
                                     </span>
                         @enderror
                     </div>
-                    <div class="form-group mb-4 has-error">
+                    <div class="form-group mb-4 ">
                         <input class="form-control form-control-air @error('password') is-invalid @enderror" type="password" placeholder="******"  name="password" required autocomplete="current-password">
                         @error('password')
                         <span class="invalid-feedback help-block small" role="alert">
@@ -87,7 +87,7 @@
     <div class="preloader-backdrop">
         <div class="page-preloader">Loading</div>
     </div>
-    
+
 @endsection
 
 @section('script')

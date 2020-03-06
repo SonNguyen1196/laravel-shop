@@ -26,7 +26,7 @@
                     <table class="table table-bordered table-hover" id="list-datatable">
                         <thead class="thead-default thead-lg">
                             <tr>
-                                <th>STT</th>
+                                <th style="width: 5%; text-align: center">STT</th>
                                 <th>Image</th>
                                 <th>Name</th>
                                 <th>Email</th>
@@ -41,7 +41,7 @@
 
                         <tfoot class="thead-default thead-lg">
                             <tr>
-                                <th>STT</th>
+                                <th style="width: 5%; text-align: center">STT</th>
                                 <th>Image</th>
                                 <th>Name</th>
                                 <th>Email</th>
@@ -61,9 +61,6 @@
 @section('javascript')
     <script>
         $(document).ready(function () {
-            setTimeout(function(){
-                $('.alert-notification').slideUp();
-            }, 4000);
 
             $(function() {
                 $('#list-datatable').DataTable({
@@ -71,30 +68,36 @@
                     serverSide: true,
                     ajax: '{{route('user.list-users')}}',
                     columns: [
+                        {data: 'id'},
                         {data: 'image'},
                         {data: 'name'},
                         {data: 'email'},
-                        {data: 'phone'},
-                        {data: 'address'},
                         {data: 'status'},
+                        {data: 'phone'},
                         {data: 'action', name: 'action', orderable: false, searchable: false}
                     ],
+
                     columnDefs: [
                         { targets: 1,
                             render: function(data) {
                                 return '<img width="80" height="80" src="'+data+'">'
                             }
                         },
-                        { targets: 6,
+                        { targets: 4,
                             render: function(data) {
                                 var newData = (data == 1) ? "checked" : " ";
-                                return '<input class="status-toggle" type="checkbox" '+ newData +' data-toggle="toggle">';
+                                return '<input class="status-toggle" type="checkbox" '+ newData +' data-toggle="toggle" data-onstyle="success">';
 
                             }
                         }
                     ],
                     "fnDrawCallback": function() {
-                        $('.status-toggle').bootstrapToggle();
+                        $('.status-toggle').bootstrapToggle({
+                            // on: 'Deactive',
+                            // off: 'Active',
+                            // onstyle: 'success',
+                            // offstyle: 'primary',
+                        });
                     },
                 });
 

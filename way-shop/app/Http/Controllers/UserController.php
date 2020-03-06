@@ -22,9 +22,9 @@ class UserController extends Controller
     }
 
     public function getUsers(){
-        $users = DB::table('users')->select(['image','name', 'email', 'phone', 'address', 'city', 'status']);
+        $users = DB::table('users')->select(['id','image','name', 'email', 'status', 'phone', 'status']);
 
-
+//        return DataTables::queryBuilder($query)->toJson();
         return Datatables::of($users)->addColumn('action', function ($user) {
             $eventSubmit = 'onclick=" confirm(\'Are you sure you want to Delete '.$user->name.'\'); event.preventDefault();document.getElementById(\'delete-role-'.$user->id.'\').submit();"';
             $formDelete = '<form id="delete-role-'.$user->id.'" action="'. route('user.destroy', ['id' => $user->id]) .'" method="POST" style="display: none;"> '.@csrf_field().'</form>';
