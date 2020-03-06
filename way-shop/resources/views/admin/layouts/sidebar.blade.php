@@ -13,7 +13,7 @@
                         <a href="colors.html">Users</a>
                     </li>
                     <li>
-                        <a href="typography.html">Roles</a>
+                        <a href="{{route('role.index')}}">Roles</a>
                     </li>
                     <li>
                         <a href="{{route('permission.index')}}">Permissions</a>

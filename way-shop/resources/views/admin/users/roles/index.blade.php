@@ -1,38 +1,38 @@
-@extends('admin.layouts-bk.master')
+@extends('admin.layouts.master')
 @section('content')
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section style="padding-bottom: 25px;" class="content-header">
-            <div class="header-icon">
-                <i class="fa fa-dashboard"></i>
-            </div>
-            <div class="header-title">
-                <h1>Roles Managaer</h1>
-            </div>
-        </section>
-        <!-- Main content -->
-        <section class="content">
-            <div class="row">
-                @if ($message = Session::get('flag_message_success'))
-                    <div class="alert alert-success alert-notification ">
-                        <button type="button" class="close" data-dismiss="alert">X</button>
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @endif
-                <div style="margin-bottom: 20px">
-                    <a class="btn btn-add" href="{{route('role.create')}}">ADD ROLE</a>
+
+    <div class="page-content fade-in-up">
+        <div class="ibox">
+            <div class="ibox-body">
+                <div class="header-title">
+                    <h1>Roles Managaer</h1>
+
                 </div>
-                <div class="table-responsive">
+                <div style="margin: 20px 0">
+                    <a class="btn-success btn" href="{{route('role.create')}}">ADD ROLE</a>
+                </div>
+                <div class="table-responsive row">
+                    @if ($message = Session::get('flag_message_success'))
+
+
+                        <div style="width: 100%;" class=" alert-message-action alert alert-info alert-dismissable fade show alert-outline has-icon">
+                            <i class="la la-check alert-icon"></i>
+                            <button class="close" data-dismiss="alert" aria-label="Close"></button>
+                            <strong>Well done!</strong>
+                            <br>{{ $message }}.
+                        </div>
+
+
+                    @endif
                     <table class="table table-bordered table-hover">
-                        <thead>
-                        <tr class="info">
-                            <th scope="col">STT</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Display Name</th>
-                            <th scope="col">Action</th>
+                        <thead class="thead-default thead-lg">
+                        <tr>
+                            <th>STT</th>
+                            <th>Name</th>
+                            <th>Display Name</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
-                        {{$roles}}
                         <tbody>
                         @foreach($roles as $key => $role)
                             <tr>
@@ -40,11 +40,11 @@
                                 <td>{{ $role->name }}</td>
                                 <td>{{ $role->display_name }}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{route('role.show', ['id' => $role->id ])}}"><i class="fa fa-eye"></i> View</a>
-                                    <a class="btn btn-add" href="{{route('role.edit', ['id' => $role->id ])}}"><i class="fa fa-pencil"></i> Edit</a>
-                                    <a class="btn btn-danger" href="#"
+                                    <a class="btn btn-add btn-success " href="{{route('role.show', ['id' => $role->id ])}}"><i class="fa fa-eye"></i> View</a>
+                                    <a class="btn btn-add btn-primary" href="{{route('role.edit', ['id' => $role->id ])}}"><i class="fa fa-pencil"></i> Edit</a>
+                                    <a class="btn btn-danger " href="#"
                                        onclick=" confirm('Are you sure you want to Delete {{$role->display_name}}'); event.preventDefault();
-                                                     document.getElementById('delete-role-{{$role->id}}').submit();">
+                                           document.getElementById('delete-role-{{$role->id}}').submit();">
                                         <i class="fa fa-trash-o"></i>{{ __('Delete') }}
                                     </a>
 
@@ -56,14 +56,11 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <div style="margin:auto; text-align: center" >{{ $roles->links() }}</div>
                 </div>
-
             </div>
-
-        </section>
-        <!-- /.content -->
+        </div>
     </div>
+
 
 @endsection
 

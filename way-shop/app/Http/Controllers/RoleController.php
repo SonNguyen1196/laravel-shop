@@ -27,8 +27,8 @@ class RoleController extends Controller
         $rules = [
             'name' => 'required|string|max:30|unique:roles',
             'display_name' => 'required|string|max:30|unique:roles',
-            'role_permission' => 'required|array|min:1',
-            'role_permission.*' => 'required|numeric|min:1',
+//            'role_permission' => 'required|array|min:1',
+//            'role_permission.*' => 'required|numeric|min:1',
         ];
 
         $messages = [
@@ -71,10 +71,8 @@ class RoleController extends Controller
 
         $input = $request->all();
         $rules = [
-            'name' => 'required|string|max:30|unique:roles',
-            'display_name' => 'required|string|max:30|unique:roles',
-            'role_permission' => 'required|array|min:1',
-            'role_permission.*' => 'required|numeric|min:1',
+            'name' => 'required|string|max:30',
+            'display_name' => 'required|string|max:30',
         ];
 
         $messages = [

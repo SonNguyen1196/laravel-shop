@@ -40,11 +40,13 @@
                             </div>
                         </div>
 
+
+
                     </div>
                     <div class="ibox-footer row">
                         <div class="col-sm-10 ml-sm-auto">
                             <button class="btn btn-primary mr-2" type="submit">Submit</button>
-                            <button class="btn btn-secondary" type="reset">Reset</button>
+                            <a class="btn btn-secondary"  href="{{route('permission.index')}}">Back to permissions manager</a>
                         </div>
                     </div>
                 </form>
