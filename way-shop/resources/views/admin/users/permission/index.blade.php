@@ -1,36 +1,36 @@
-@extends('admin.layouts-bk.master')
+@extends('admin.layouts.master')
 @section('content')
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <div class="header-icon">
-                <i class="fa fa-dashboard"></i>
-            </div>
-            <div class="header-title">
-                <h1>Permission Managaer</h1>
-                <small>Very detailed & featured admin.</small>
-            </div>
-        </section>
-        <!-- Main content -->
-        <section class="content">
-            <div class="row">
-                @if ($message = Session::get('flag_message_success'))
-                    <div class="alert alert-success alert-notification ">
-                        <button type="button" class="close" data-dismiss="alert">X</button>
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @endif
-                <div style="margin-bottom: 20px">
-                    <a class="btn btn-add" href="{{route('permission.create')}}">ADD PERMISSION</a>
+
+    <div class="page-content fade-in-up">
+        <div class="ibox">
+            <div class="ibox-body">
+                <div class="header-title">
+                    <h1>Permission Managaer</h1>
+
                 </div>
-                <div class="table-responsive">
+                <div style="margin: 20px 0">
+                    <a class="btn-success btn" href="{{route('permission.create')}}">ADD ROLE</a>
+                </div>
+                <div class="table-responsive row">
+                    @if ($message = Session::get('flag_message_success'))
+
+
+                        <div style="width: 100%;" class=" alert-message-action alert alert-info alert-dismissable fade show alert-outline has-icon">
+                            <i class="la la-check alert-icon"></i>
+                            <button class="close" data-dismiss="alert" aria-label="Close"></button>
+                            <strong>Well done!</strong>
+                            <br>{{ $message }}.
+                        </div>
+
+
+                    @endif
                     <table class="table table-bordered table-hover">
-                        <thead>
-                        <tr class="info">
-                            <th scope="col">STT</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Display Name</th>
-                            <th scope="col">Action</th>
+                        <thead class="thead-default thead-lg">
+                        <tr>
+                            <th>STT</th>
+                            <th>Name</th>
+                            <th>Display Name</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -40,7 +40,7 @@
                                 <td>{{ $permission->name }}</td>
                                 <td>{{ $permission->display_name }}</td>
                                 <td>
-                                    <a class="btn btn-add " href="{{route('permission.edit', ['id' => $permission->id ])}}"><i class="fa fa-pencil"></i> Edit</a>
+                                    <a class="btn btn-add btn-primary " href="{{route('permission.edit', ['id' => $permission->id ])}}"><i class="fa fa-pencil"></i> Edit</a>
                                     <a class="btn btn-danger " href="#"
                                        onclick=" confirm('Are you sure you want to Delete {{$permission->display_name}}'); event.preventDefault();
                                                      document.getElementById('delete-permission-{{$permission->id}}').submit();">
@@ -55,13 +55,9 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <div style="margin:auto; text-align: center" >{{ $permissions->links() }}</div>
                 </div>
-
             </div>
-
-        </section>
-        <!-- /.content -->
+        </div>
     </div>
 
 @endsection

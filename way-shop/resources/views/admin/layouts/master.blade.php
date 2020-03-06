@@ -464,6 +464,13 @@
 <!-- PAGE LEVEL PLUGINS-->
 <!-- CORE SCRIPTS-->
 <script src="{{asset('admin-assets')}}//js/app.min.js"></script>
+<script >
+    $(window).on('load', function () {
+        setTimeout(function(){
+            $('.alert-message-action').slideUp();
+        }, 2500);
+    })
+</script>
 <!-- PAGE LEVEL SCRIPTS-->
 </body>
 

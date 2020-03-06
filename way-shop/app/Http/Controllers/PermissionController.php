@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class PermissionController extends Controller
 {
     public function  index(){
-        $permissions = Permission::paginate(10);
+        $permissions = Permission::all();
         return view('admin.users.permission.index')->with('permissions', $permissions);
     }
 
@@ -57,8 +57,8 @@ class PermissionController extends Controller
 
         $input = $request->all();
         $rules = [
-            'name' => 'required|string|max:30',
-            'display_name' => 'required|string|max:30',
+            'name' => 'required|string|max:30|unique:permissions',
+            'display_name' => 'required|string|max:30|unique:permissions',
         ];
 
         $messages = [

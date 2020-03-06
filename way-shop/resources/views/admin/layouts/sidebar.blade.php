@@ -2,70 +2,23 @@
     <div id="sidebar-collapse">
         <ul class="side-menu metismenu">
             <li>
-                <a href="javascript:;"><i class="sidebar-item-icon ti-home"></i>
-                    <span class="nav-label">Dashboards</span><i class="fa fa-angle-left arrow"></i></a>
-                <ul class="nav-2-level collapse">
-                    <li>
-                        <a href="index.html">Visitors</a>
-                    </li>
-                    <li>
-                        <a href="dashboard_ecommerce.html">Shop</a>
-                    </li>
-                    <li>
-                        <a href="dashboard_blog.html">Blog</a>
-                    </li>
-                    <li>
-                        <a href="dashboard_4.html">Dashboard v4</a>
-                    </li>
-                    <li>
-                        <a href="dashboard_5.html">Dashboard v5</a>
-                    </li>
-                    <li>
-                        <a href="dashboard_6.html">Dashboard v6</a>
-                    </li>
-                    <li>
-                        <a href="dashboard_7.html">Dashboard v7</a>
-                    </li>
-                </ul>
+                <a href="{{route('dashboard')}}"><i class="sidebar-item-icon ti-home"></i>
+                    <span class="nav-label">Dashboards</span></a>
             </li>
-            <li class="heading">FEATURES</li>
             <li>
-                <a href="javascript:;"><i class="sidebar-item-icon ti-paint-roller"></i>
-                    <span class="nav-label">Basic UI</span><i class="fa fa-angle-left arrow"></i></a>
+                <a href="javascript:;"><i class=" sidebar-item-icon fa fa-users"></i>
+                    <span class="nav-label">Admin Group</span><i class="fa fa-angle-left arrow"></i></a>
                 <ul class="nav-2-level collapse">
                     <li>
-                        <a href="colors.html">Colors</a>
+                        <a href="colors.html">Users</a>
                     </li>
                     <li>
-                        <a href="typography.html">Typography</a>
+                        <a href="typography.html">Roles</a>
                     </li>
                     <li>
-                        <a href="panels.html">Panels</a>
+                        <a href="{{route('permission.index')}}">Permissions</a>
                     </li>
-                    <li>
-                        <a href="javascript:;">
-                            <span class="nav-label">Tabs</span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-3-level collapse">
-                            <li>
-                                <a href="tabs-pill.html">Pills</a>
-                            </li>
-                            <li>
-                                <a href="tabs-line.html">Line tabs</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="alerts.html">Alerts</a>
-                    </li>
-                    <li>
-                        <a href="tooltip_popover.html">Tooltip &amp; Popover</a>
-                    </li>
-                    <li>
-                        <a href="badges_progress.html">Badges &amp; Progress</a>
-                    </li>
-                    <li>
-                        <a href="lists.html">List</a>
-                    </li>
+
                 </ul>
             </li>
             <li>

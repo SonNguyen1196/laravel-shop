@@ -437,7 +437,7 @@
                                         </h5>
                                         <p class="font-13 text-light mb-1">Cillum in incididunt reprehenderit qui reprehenderit nulla</p>
                                         <div class="d-flex align-items-center font-13">
-                                            <img class="img-circle mr-2" src="assets/img/users/u11.jpg" alt="image" width="22" />
+                                            <img class="img-circle mr-2" src="{{asset('admin-assets/img/users/u11.jpg')}}" alt="image" width="22" />
                                             <a class="mr-2 text-success" href="javascript:;">Tyrone Carroll</a>
                                             <span class="text-muted">18 mins ago</span>
                                         </div>

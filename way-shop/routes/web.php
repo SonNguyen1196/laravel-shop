@@ -28,34 +28,27 @@ Route::match(['get', 'post'], '/', 'IndexController@index' );
 
 Auth::routes();
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', ['as' => 'admin.'] ,'middleware' => ['auth']], function () {
     //    Login
     Route::get('/login', 'HomeController@index')->name('home');
     //Dashboard
     Route::get('/dashboard', function (){
         return view('admin.dashboard');
     })->name('dashboard');
-});
 
-//Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
-////    Login
-//    Route::get('/login', 'HomeController@index')->name('home');
-//    //Dashboard
-//    Route::get('/dashboard', function (){
-//        return view('admin.dashboard');
-//    })->name('dashboard');
-//    //Permission
-//    Route::group(['prefix'=> 'permissions', 'as' => 'permission.'], function (){
-//        Route::get('/', 'PermissionController@index')->name('index');
-//        Route::get('/create', 'PermissionController@create')->name('create');
-//        Route::post('/', 'PermissionController@store')->name('store');
-//        Route::get('/{id}/edit', 'PermissionController@edit')->name('edit');
-//        Route::put('/{id}', 'PermissionController@update')->name('update');
-//        Route::post('/{id}', 'PermissionController@destroy')->name('destroy');
-//    });
-//
-//    //Roles
-//
+    //Permission
+
+    Route::group(['prefix'=> 'permissions', 'as' => 'permission.'], function (){
+        Route::get('/', 'PermissionController@index')->name('index');
+        Route::get('/create', 'PermissionController@create')->name('create');
+        Route::post('/', 'PermissionController@store')->name('store');
+        Route::get('/{id}/edit', 'PermissionController@edit')->name('edit');
+        Route::put('/{id}', 'PermissionController@update')->name('update');
+        Route::post('/{id}', 'PermissionController@destroy')->name('destroy');
+    });
+
+    //Roles
+
 //    Route::group(['prefix'=> 'roles', 'as' => 'role.'], function (){
 //        Route::get('/', 'RoleController@index')->name('index');
 //        Route::get('/create', 'RoleController@create')->name('create');
@@ -65,6 +58,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 //        Route::put('/{id}', 'RoleController@update')->name('update');
 //        Route::post('/{id}', 'RoleController@destroy')->name('destroy');
 //    });
+});
+
+//Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+////    Login
+//    Route::get('/login', 'HomeController@index')->name('home');
+//    //Dashboard
+//    Route::get('/dashboard', function (){
+//        return view('admin.dashboard');
+//    })->name('dashboard');
+
+
+
 //
 //    Route::group(['prefix'=> 'users', 'as' => 'user.'], function (){
 //        Route::get('/', 'UserController@index')->name('index');
