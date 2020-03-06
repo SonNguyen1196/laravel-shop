@@ -57,8 +57,8 @@ class PermissionController extends Controller
 
         $input = $request->all();
         $rules = [
-            'name' => 'required|string|max:30|unique:permissions',
-            'display_name' => 'required|string|max:30|unique:permissions',
+            'name' => 'required|string|max:30',
+            'display_name' => 'required|string|max:30',
         ];
 
         $messages = [
