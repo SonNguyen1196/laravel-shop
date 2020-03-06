@@ -7,14 +7,10 @@
 
 @endsection
 @section('content')
-    <section style="padding-bottom: 25px;" class="content-header">
-        <div class="header-icon">
-            <i class="fa fa-dashboard"></i>
-        </div>
-        <div class="header-title">
-            <h1>Media Media</h1>
-        </div>
-    </section>
+
+    <div style="margin: 30px 0" class="header-title">
+        <h1>Media Media</h1>
+    </div>
     <div style="height: 600px;">
         <div id="fm"></div>
     </div>

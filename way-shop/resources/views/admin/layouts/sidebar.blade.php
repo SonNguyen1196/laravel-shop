@@ -1,14 +1,14 @@
 <nav class="page-sidebar" id="sidebar">
     <div id="sidebar-collapse">
-        <ul class="side-menu metismenu">
+        <ul class="side-menu ">
             <li>
                 <a href="{{route('dashboard')}}"><i class="sidebar-item-icon ti-home"></i>
                     <span class="nav-label">Dashboards</span></a>
             </li>
-            <li>
-                <a href="javascript:;"><i class=" sidebar-item-icon fa fa-users"></i>
+            <li >
+                <a data-toggle="collapse" href="#user-group-mng"><i class=" sidebar-item-icon fa fa-users"></i>
                     <span class="nav-label">Admin Group</span><i class="fa fa-angle-left arrow"></i></a>
-                <ul class="nav-2-level collapse">
+                <ul id="user-group-mng" class="nav-2-level collapse">
                     <li>
                         <a href="{{route('user.index')}}">Users</a>
                     </li>
@@ -22,43 +22,9 @@
                 </ul>
             </li>
             <li>
-                <a href="javascript:;"><i class="sidebar-item-icon ti-package"></i>
-                    <span class="nav-label">Components</span><i class="fa fa-angle-left arrow"></i></a>
-                <ul class="nav-2-level collapse">
-                    <li>
-                        <a href="toastr.html">Toastr Notifications</a>
-                    </li>
-                    <li>
-                        <a href="sweetalert.html">Sweet Alert</a>
-                    </li>
-                    <li>
-                        <a href="alertify.html">Alertify</a>
-                    </li>
-                    <li>
-                        <a href="idle_timer.html">Idle timer</a>
-                    </li>
-                    <li>
-                        <a href="session_timeout.html">Session Timeout</a>
-                    </li>
-                    <li>
-                        <a href="code_editor.html">Code Editor</a>
-                    </li>
-                    <li>
-                        <a href="tree_view.html">Tree View</a>
-                    </li>
-                    <li>
-                        <a href="nestable.html">Nestable List</a>
-                    </li>
-                    <li>
-                        <a href="clipboard.html">Clipboard</a>
-                    </li>
-                    <li>
-                        <a href="masonry.html">Masonry</a>
-                    </li>
-                    <li>
-                        <a href="pdf_viewer.html">PDF viewer</a>
-                    </li>
-                </ul>
+                <a href="{{route('media.index')}}"><i class="sidebar-item-icon fa fa-camera-retro"></i>
+                    <span class="nav-label">Medias</span></a>
+
             </li>
             <li>
                 <a href="javascript:;"><i class="sidebar-item-icon ti-heart"></i>

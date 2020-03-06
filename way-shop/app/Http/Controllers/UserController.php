@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Validated;
 use App\User;
@@ -35,7 +36,8 @@ class UserController extends Controller
     }
 
     public function create(){
-        return view('admin.users.users.create');
+        $roles =  Role::all();
+        return view('admin.users.users.create', compact('roles'));
     }
 
     public function store(){

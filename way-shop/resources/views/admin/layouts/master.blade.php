@@ -470,7 +470,7 @@
 <!-- PAGE LEVEL PLUGINS-->
 <script src="{{asset('admin-assets/vendors/dataTables/datatables.min.js')}}"></script>
 <!-- CORE SCRIPTS-->
-<script src="{{asset('admin-assets')}}//js/app.min.js"></script>
+<script src="{{asset('admin-assets')}}/js/app.min.js"></script>
 <script >
     $(window).on('load', function () {
         setTimeout(function(){
