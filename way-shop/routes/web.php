@@ -71,24 +71,11 @@ Route::group(['prefix' => 'admin', ['as' => 'admin.'] ,'middleware' => ['auth']]
         Route::put('/{id}', 'UserController@update')->name('update');
         Route::post('/{id}', 'UserController@destroy')->name('destroy');
     });
+
+    //Medias
+    Route::group(['prefix'=> 'medias', 'as' => 'media.'], function (){
+        Route::get('/', 'MediasController@index')->name('index');
+    });
 });
 
-//Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
-////    Login
-//    Route::get('/login', 'HomeController@index')->name('home');
-//    //Dashboard
-//    Route::get('/dashboard', function (){
-//        return view('admin.dashboard');
-//    })->name('dashboard');
-
-
-
-//
-
-//
-//    //Medias
-//    Route::group(['prefix'=> 'medias', 'as' => 'media.'], function (){
-//        Route::get('/', 'MediasController@index')->name('index');
-//    });
-//});
 
