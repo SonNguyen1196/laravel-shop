@@ -22,7 +22,7 @@ class UserController extends Controller
     }
 
     public function getUsers(){
-        $users = DB::table('users')->select(['id', 'image','name', 'email', 'phone', 'address', 'city', 'status']);
+        $users = DB::table('users')->select(['image','name', 'email', 'phone', 'address', 'city', 'status']);
 
 
         return Datatables::of($users)->addColumn('action', function ($user) {

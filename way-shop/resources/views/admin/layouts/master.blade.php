@@ -471,6 +471,7 @@
         }, 2500);
     })
 </script>
+@yield('javascript')
 <!-- PAGE LEVEL SCRIPTS-->
 </body>
 
