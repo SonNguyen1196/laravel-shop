@@ -58,6 +58,19 @@ Route::group(['prefix' => 'admin', ['as' => 'admin.'] ,'middleware' => ['auth']]
         Route::put('/{id}', 'RoleController@update')->name('update');
         Route::post('/{id}', 'RoleController@destroy')->name('destroy');
     });
+
+    // User
+
+    Route::group(['prefix'=> 'users', 'as' => 'user.'], function (){
+        Route::get('/', 'UserController@index')->name('index');
+        Route::get('/list-users', 'UserController@getUsers')->name('list-users');
+        Route::get('/create', 'UserController@create')->name('create');
+        Route::post('/', 'UserController@store')->name('store');
+        Route::get('/{id}', 'UserController@show')->name('show');
+        Route::get('/{id}/edit', 'UserController@edit')->name('edit');
+        Route::put('/{id}', 'UserController@update')->name('update');
+        Route::post('/{id}', 'UserController@destroy')->name('destroy');
+    });
 });
 
 //Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
@@ -71,16 +84,7 @@ Route::group(['prefix' => 'admin', ['as' => 'admin.'] ,'middleware' => ['auth']]
 
 
 //
-//    Route::group(['prefix'=> 'users', 'as' => 'user.'], function (){
-//        Route::get('/', 'UserController@index')->name('index');
-//        Route::get('/list-users', 'UserController@getUsers')->name('list-users');
-//        Route::get('/create', 'UserController@create')->name('create');
-//        Route::post('/', 'UserController@store')->name('store');
-//        Route::get('/{id}', 'UserController@show')->name('show');
-//        Route::get('/{id}/edit', 'UserController@edit')->name('edit');
-//        Route::put('/{id}', 'UserController@update')->name('update');
-//        Route::post('/{id}', 'UserController@destroy')->name('destroy');
-//    });
+
 //
 //    //Medias
 //    Route::group(['prefix'=> 'medias', 'as' => 'media.'], function (){

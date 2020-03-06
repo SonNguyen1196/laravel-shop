@@ -10,7 +10,7 @@
                     <span class="nav-label">Admin Group</span><i class="fa fa-angle-left arrow"></i></a>
                 <ul class="nav-2-level collapse">
                     <li>
-                        <a href="colors.html">Users</a>
+                        <a href="{{route('user.index')}}">Users</a>
                     </li>
                     <li>
                         <a href="{{route('role.index')}}">Roles</a>
