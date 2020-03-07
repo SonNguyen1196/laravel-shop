@@ -14,38 +14,45 @@
             <div class="ibox-head">
                 <div class="ibox-title">Fill Info </div>
             </div>
-            <form class="form-horizontal" action="javascript:;">
+            <form class="form-horizontal" method="POST" action="{{route('user.store')}}">
                 @csrf
                 <div class="ibox-body">
                     <div class="form-group mb-4 row">
                         <label class="col-sm-2 col-form-label">Full Name</label>
                         <div class="col-sm-10">
-                            <input class="form-control" name="name" type="text" placeholder="Full name">
+                            <input class="form-control" name="name"  type="text" placeholder="Full name" required >
+                            @if(count($errors) > 0)
+                                <small class="text-danger">{{$errors->first('name')}}</small>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group mb-4 row">
                         <label class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="email" name="email" placeholder="Email address">
+                            <input class="form-control" type="email" name="email" placeholder="Email address" required >
+                            @if(count($errors) > 0)
+                                <small class="text-danger">{{$errors->first('email')}}</small>
+                            @endif
                         </div>
                     </div>
 
                     <div class="form-group mb-4 row">
                         <label class="col-sm-2 col-form-label">Phone</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" name="phone" placeholder="Phone number">
+                            <input class="form-control" type="text" name="phone" placeholder="Phone number" required >
+                            @if(count($errors) > 0)
+                                <small class="text-danger">{{$errors->first('phone')}}</small>
+                            @endif
                         </div>
                     </div>
 
                     <div class="form-group mb-4 row">
                         <label class="col-sm-2 col-form-label" for="password" >{{ __('Password') }}</label>
                         <div class="col-sm-10">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="***********" value="{{ old('password') }}" required autocomplete="password" autofocus>
-                            @error('password')
-                            <span class="invalid-feedback help-block small" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
+                            <input id="password" type="password" class="form-control" name="password" placeholder="***********" required >
+                            @if(count($errors) > 0)
+                                <small class="text-danger">{{$errors->first('password')}}</small>
+                            @endif
                         </div>
 
                     </div>
@@ -53,7 +60,7 @@
                     <div class="form-group mb-4 row">
                         <label class="col-sm-2 col-form-label" for="password-confirm" >{{ __('Confirm Password') }}</label>
                         <div class="col-sm-10">
-                            <input id="password-confirm" type="password" class="form-control" placeholder="***********" name="password_confirmation" required autocomplete="new-password" autofocus>
+                            <input id="password-confirm" type="password" class="form-control" placeholder="***********" name="password_confirmation" required >
                         </div>
 
                     </div>
@@ -61,14 +68,14 @@
                     <div class="form-group mb-4 row">
                         <label class="col-sm-2 col-form-label">Address</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" name="address" placeholder="Your qddress">
+                            <input class="form-control" type="text" name="address" placeholder="Your address" >
                         </div>
                     </div>
 
                     <div class="form-group mb-4 row">
                         <label class="col-sm-2 col-form-label">City</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" name="city" placeholder="Your City">
+                            <input class="form-control" type="text" name="city" placeholder="Your City" >
                         </div>
                     </div>
 
@@ -84,11 +91,14 @@
                         <label class="col-sm-2 col-form-label">Status</label>
                         <div class="col-sm-10 d-flex align-items-center">
                             <label class="radio radio-grey radio-primary radio-inline">
-                                <input type="radio" name="status" checked="">
+                                <input type="radio" name="status" checked value="1" required >
                                 <span class="input-span"></span>Active</label>
                             <label class="radio radio-grey radio-primary radio-inline">
-                                <input type="radio" name="status">
+                                <input type="radio" value="0" name="status">
                                 <span class="input-span"></span>Deactive</label>
+                            @if(count($errors) > 0)
+                                <small class="text-danger">{{$errors->first('status')}}</small>
+                            @endif
                         </div>
                     </div>
 
@@ -101,37 +111,41 @@
                                 @if($roles)
                                     @foreach($roles as $role)
                                         <label class="checkbox checkbox-grey checkbox-primary">
-                                            <input type="radio" name="role">
+                                            <input type="checkbox" value="{{$role->id}}" name="role[]">
                                             <span class="input-span"></span>{{$role->display_name}}</label>
                                     @endforeach
                                 @endif
                             </div>
+                            @if(count($errors) > 0)
+                                <small class="text-danger">{{$errors->first('role')}}</small>
+                            @endif
                         </div>
                     </div>
 
                     <div class="form-group mb-4 row">
                         <label class="col-sm-2 col-form-label">Avatar</label>
                         <div class="col-sm-10">
-                            <input id="upload-avatar-user" name="image" type="file" >
-                            <br>
-                            <img style="width: 150px; height: 150px; margin-top: 30px" id="avt-preview" src="#" alt="your image" />
+                            <div class="input-group">
+                                <input type="text" id="image_label" class="form-control" name="image"
+                                       aria-label="Image" aria-describedby="button-image">
+                                <div class="input-group-append">
+                                    <button class="btn btn-success" type="button" id="button-image">Select</button>
+                                </div>
+                            </div>
+                            @if(count($errors) > 0)
+                                <small class="text-danger">{{$errors->first('image')}}</small>
+                            @endif
                         </div>
                     </div>
 
-                    <div class="input-group">
-                        <input type="text" id="image_label" class="form-control" name="image"
-                               aria-label="Image" aria-describedby="button-image">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
-                        </div>
-                    </div>
+
 
                 </div>
 
 
                 <div class="ibox-footer row">
                     <div class="col-sm-10 ml-sm-auto">
-                        <button class="btn btn-primary mr-2" type="button">Submit</button>
+                        <button class="btn btn-primary mr-2" type="submit">Submit</button>
                         <button class="btn btn-secondary" type="reset">Cancel</button>
                     </div>
                 </div>
@@ -151,10 +165,19 @@
                 tooltip: 'File Manager',
                 click: function() {
                     window.open('/file-manager/summernote', 'fm', 'width=800,height=600');
+                    source=1;
                 }
             });
             return button.render();
         };
+
+        //Render Button Image
+
+        document.getElementById('button-image').addEventListener('click', (event) => {
+            event.preventDefault();
+            window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
+            source = 2;
+        });
 
         $('#summernote-user-desc').summernote({
             placeholder: 'Type user description',
@@ -176,7 +199,13 @@
 
 
         function fmSetLink(url) {
-            $('#summernote-user-desc').summernote('insertImage', url);
+            if(source === 1) {
+                $('#summernote-user-desc').summernote('insertImage', url);
+            } else if (source === 2) {
+                document.getElementById('image_label').value = url;
+            } else {
+                console.error('Error!!');
+            }
         }
 
 

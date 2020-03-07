@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Validated;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 
 class UserController extends Controller
@@ -40,8 +42,36 @@ class UserController extends Controller
         return view('admin.users.users.create', compact('roles'));
     }
 
-    public function store(){
+    public function store(Request $request){
+        $input = $request->all();
+        $rules = [
+            'name' => 'required|string|unique:users',
+            'email' => 'required|email|unique:users',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9|max:10|unique:users',
+            'password' => 'required|confirmed|string|min:8',
+            'status' => 'required|in:0,1',
+            'role' => 'required',
+            'image' => 'required',
+        ];
 
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()){
+            $errors= $validator->errors();
+            return redirect()->route('user.create')->with('errors', $errors);
+        }else{
+            $user = new User;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->phone= $request->phone;
+            $user->password = Hash::make($request->password) ;
+            $user->address = $request->address;
+            $user->city = $request->city;
+            $user->description = $request->description;
+            $user->status = $request->status;
+            $user->image = $request->image;
+            $user->save();
+            $user->roles()->attach($request->input('role'));
+        }
     }
 
     public function show($id){
