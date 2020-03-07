@@ -44,6 +44,7 @@ class UserController extends Controller
 
     public function store(Request $request){
         $input = $request->all();
+
         $rules = [
             'name' => 'required|string|unique:users',
             'email' => 'required|email|unique:users',
@@ -59,6 +60,7 @@ class UserController extends Controller
             $errors= $validator->errors();
             return redirect()->route('user.create')->with('errors', $errors);
         }else{
+            $pathImageUrl = parse_url($request->image)['path'];
             $user = new User;
             $user->name = $request->name;
             $user->email = $request->email;
@@ -68,9 +70,11 @@ class UserController extends Controller
             $user->city = $request->city;
             $user->description = $request->description;
             $user->status = $request->status;
-            $user->image = $request->image;
+            $user->image = $pathImageUrl;
             $user->save();
             $user->roles()->attach($request->input('role'));
+
+            return redirect()->route('user.index')->with('flag_message_success', 'Add User Success');
         }
     }
 
