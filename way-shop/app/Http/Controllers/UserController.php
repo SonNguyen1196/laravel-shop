@@ -75,7 +75,9 @@ class UserController extends Controller
     }
 
     public function show($id){
-        return view('admin/users.users.show');
+        $user = User::find($id);
+        $roleOfusers = $user->roles->pluck('display_name')->toArray();
+        return view('admin/users.users.show', compact('user', 'roleOfusers'));
     }
 
     public function edit(){
