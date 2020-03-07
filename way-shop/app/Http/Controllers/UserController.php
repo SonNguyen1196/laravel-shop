@@ -84,8 +84,11 @@ class UserController extends Controller
         return view('admin/users.users.show', compact('user', 'roleOfusers'));
     }
 
-    public function edit(){
-//        return view('admin.users.users.create');
+    public function edit($id){
+        $userInfo = User::find($id);
+        $roleOfUsers = $userInfo->roles;
+        $roles = Role::all();
+        return view('admin.users.users.edit', compact('userInfo', 'roleOfUsers', 'roles'));
     }
 
     public function update(){
