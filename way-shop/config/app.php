@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
+        Alexusmai\LaravelFileManager\FileManagerServiceProvider::class,
 
         /*
          * Package Service Providers...

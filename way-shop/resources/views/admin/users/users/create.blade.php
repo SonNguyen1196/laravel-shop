@@ -76,7 +76,7 @@
                     <div class="form-group mb-4 row">
                         <label class="col-sm-2 col-form-label">Description</label>
                         <div class="col-sm-10">
-                            <textarea id="summernote" data-plugin="summernote" data-air-mode="true" class="form-control" name="description" rows="25"></textarea>
+                            <textarea id="summernote-user-desc" data-plugin="summernote" data-air-mode="true" class="form-control" name="description" rows="25"></textarea>
                         </div>
                     </div>
 
@@ -118,6 +118,14 @@
                         </div>
                     </div>
 
+                    <div class="input-group">
+                        <input type="text" id="image_label" class="form-control" name="image"
+                               aria-label="Image" aria-describedby="button-image">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
+                        </div>
+                    </div>
+
                 </div>
 
 
@@ -136,10 +144,43 @@
 @section('javascript')
     <script src="{{asset('admin-assets/vendors/summernote/dist/summernote.min.js')}}"></script>
     <script>
-        $('#summernote').summernote({
+        const FMButton = function(context) {
+            const ui = $.summernote.ui;
+            const button = ui.button({
+                contents: '<i class="note-icon-picture"></i> ',
+                tooltip: 'File Manager',
+                click: function() {
+                    window.open('/file-manager/summernote', 'fm', 'width=800,height=600');
+                }
+            });
+            return button.render();
+        };
+
+        $('#summernote-user-desc').summernote({
             placeholder: 'Type user description',
-            height: 400
+            height: 400,
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['fm-button', ['fm']],
+            ],
+            buttons: {
+                fm: FMButton
+            }
         });
+
+
+        function fmSetLink(url) {
+            $('#summernote-user-desc').summernote('insertImage', url);
+        }
+
+
+
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();

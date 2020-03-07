@@ -25,7 +25,7 @@ return [
      * List of disk names that you want to use
      * (from config/filesystems)
      */
-    'diskList' => ['public'],
+    'diskList' => ['files', 'images'],
 
     /**
      * Default disk for left manager
@@ -104,7 +104,7 @@ return [
      *
      * default - false(OFF)
      */
-    'acl' => false,
+    'acl' => true,
 
     /**
      * Hide files and folders from file-manager if user doesn't have access
@@ -152,11 +152,12 @@ return [
      */
     'aclRules' => [
         null => [
-            //['disk' => 'public', 'path' => '/', 'access' => 2],
+            ['disk' => 'images', 'path' => '/*', 'access' => 0],
+            ['disk' => 'files', 'path' => '/*', 'access' => 0],
         ],
         1 => [
-            //['disk' => 'public', 'path' => 'images/arch*.jpg', 'access' => 2],
-            //['disk' => 'public', 'path' => 'files/*', 'access' => 1],
+            ['disk' => 'images', 'path' => '/*.jpg', 'access' => 1],
+            ['disk' => 'files', 'path' => '/*', 'access' => 1],
         ],
     ],
 ];
