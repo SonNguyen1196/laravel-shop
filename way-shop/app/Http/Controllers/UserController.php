@@ -14,9 +14,11 @@ use Yajra\DataTables\DataTables;
 class UserController extends Controller
 {
     private $user;
+    private $role;
 
-    public function __construct(User $user){
+    public function __construct(User $user, Role $role){
         $this->user = $user;
+        $this->role = $role;
     }
 
     public function index(){
@@ -38,7 +40,7 @@ class UserController extends Controller
     }
 
     public function create(){
-        $roles =  Role::all();
+        $roles =  $this->role->all();
         return view('admin.users.users.create', compact('roles'));
     }
 
@@ -79,22 +81,67 @@ class UserController extends Controller
     }
 
     public function show($id){
-        $user = User::find($id);
+        $user = $this->user->find($id);
         $roleOfusers = $user->roles->pluck('display_name')->toArray();
         return view('admin/users.users.show', compact('user', 'roleOfusers'));
     }
 
     public function edit($id){
-        $userInfo = User::find($id);
+        $userInfo = $this->user->find($id);
         $roleOfUsers = $userInfo->roles;
         $roles = Role::all();
         return view('admin.users.users.edit', compact('userInfo', 'roleOfUsers', 'roles'));
     }
 
-    public function update(){
+    public function update($id, Request $request){
+
+        $input = $request->all();
+        $user = User::findOrFail($id);
+
+        $rules = [
+            'name' => 'required|string|unique:users,name,' .$user->id,
+            'email' => 'required|email|unique:users,email,' .$user->id,
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9|max:10|unique:users,phone,' .$user->id,
+            'oldPassword' => 'required|string|min:8',
+            'password' => 'required|confirmed|string|min:8',
+            'status' => 'required|in:0,1',
+            'role' => 'required',
+            'image' => 'required',
+        ];
+
+        $validator = Validator::make($input, $rules);
+
+        if (Hash::check($request->oldPassword, $user->password) == false) {
+            $validator->errors()->add('oldPassword', 'Your old password is incorrect.');
+        }
+
+
+        if ($validator->fails()){
+            $errors= $validator->errors();
+            return redirect()->route('user.edit',  ['id' => $user->id])->with('errors', $errors);
+        }else{
+            $pathImageUrl = parse_url($request->image)['path'];
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->phone= $request->phone;
+            $user->password = Hash::make($request->password) ;
+            $user->address = $request->address;
+            $user->city = $request->city;
+            $user->description = $request->description;
+            $user->status = $request->status;
+            $user->image = $pathImageUrl;
+            $user->save();
+            $user->roles()->detach();
+            $user->roles()->attach($request->input('role'));
+
+            return redirect()->route('user.index')->with('flag_message_success', 'Update User Success');
+        }
 
     }
-    public function destroy(){
-        return 'Delete';
+    public function destroy($id){
+        $user= User::findOrFail($id);
+        $user->roles()->detach();
+        $user->delete();
+        return redirect()->route('user.index')->with('flag_message_success', 'Delete Role Success');
     }
 }

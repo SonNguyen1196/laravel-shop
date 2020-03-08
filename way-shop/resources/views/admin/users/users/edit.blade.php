@@ -8,13 +8,13 @@
         <div style="margin-top: 30px" class="ibox ibox-fullheight">
             <div class="ibox-body">
                 <div class="header-title">
-                    <h1>Add new user</h1>
+                    <h1>Edit Info Of {{$userInfo->name}}</h1>
                 </div>
             </div>
             <div class="ibox-head">
                 <div class="ibox-title">Fill Info </div>
             </div>
-            <form class="form-horizontal" method="POST" action="{{route('user.store')}}">
+            <form class="form-horizontal" method="POST" action="{{route('user.update', ['id' => $userInfo->id])}}">
                 @csrf
                 @method('PUT')
                 <div class="ibox-body">
@@ -48,11 +48,11 @@
                     </div>
 
                     <div class="form-group mb-4 row">
-                        <label class="col-sm-2 col-form-label" for="old-password" >{{ __('Old Password') }}</label>
+                        <label class="col-sm-2 col-form-label" for="oldPassword" >{{ __('Old Password') }}</label>
                         <div class="col-sm-10">
-                            <input id="old-password" type="old-password" class="form-control" name="old-password" placeholder="***********" required >
+                            <input id="oldPassword" type="password" class="form-control" name="oldPassword" placeholder="***********" required >
                             @if(count($errors) > 0)
-                                <small class="text-danger">{{$errors->first('old-password')}}</small>
+                                <small class="text-danger">{{$errors->first('oldPassword')}}</small>
                             @endif
                         </div>
 
