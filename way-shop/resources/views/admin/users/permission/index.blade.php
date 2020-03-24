@@ -9,7 +9,7 @@
 
                 </div>
                 <div style="margin: 20px 0">
-                    <a class="btn-success btn" href="{{route('permission.create')}}">ADD ROLE</a>
+                    <a class="btn-success btn" href="{{route('permission.create')}}">ADD PERMISSION</a>
                 </div>
                 <div class="table-responsive row">
                     @if ($message = Session::get('flag_message_success'))
